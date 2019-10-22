@@ -1,0 +1,39 @@
+.gheader {
+  // wrapper
+  display: flex;
+  justify-content: space-between;
+  // logo box
+  &__logo {
+    img {
+      height: 5rem;
+    }
+  }
+  // menu box
+  &__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  // menu list
+  &__list {
+    width: 8rem;
+    height: 100%;
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      transition: 0.2s all ease-in-out;
+      font: {
+        size: 1.4rem;
+      }
+      &:hover {
+        font: {
+          size: 1.5rem;
+          weight: 700;
+        }
+      }
+    }
+  }
+}
