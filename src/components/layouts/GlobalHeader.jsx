@@ -1,36 +1,38 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const GlobalHeader = props => {
+const GlobalHeader = ({ location: { pathname } }) => {
   return (
     <header className="gheader container">
       <div className="gheader__logo">
-        <img src="http://pngimg.com/uploads/mercedes_logos/mercedes_logos_PNG28.png" alt="" />
+        <Link to="/">
+          <img src="https://pngmafia.net/image/2019/01/3529520_0-min.png" alt="" />
+        </Link>
       </div>
       <ul className="gheader__menu">
-        <li className="gheader__list">
-          <Link to="/">
-            <span>HOME</span>
-          </Link>
-        </li>
-        <li className="gheader__list">
+        <li className={`gheader__list ${pathname === '/about' ? 'gheader__list--active' : ''}`}>
           <Link to="/about">
             <span>ABOUT US</span>
           </Link>
         </li>
-        <li className="gheader__list">
+        <li className={`gheader__list ${pathname === '/study' ? 'gheader__list--active' : ''}`}>
           <Link to="/study">
             <span>STUDY</span>
           </Link>
         </li>
-        <Link className="gheader__list">
+        <li className={`gheader__list ${pathname === '/course' ? 'gheader__list--active' : ''}`}>
+          <Link to="/course">
+            <span>COURSE</span>
+          </Link>
+        </li>
+        <li className={`gheader__list ${pathname === '/contact' ? 'gheader__list--active' : ''}`}>
           <Link to="/contact">
             <span>CONTACT</span>
           </Link>
-        </Link>
+        </li>
       </ul>
     </header>
   );
 };
 
-export default GlobalHeader;
+export default withRouter(GlobalHeader);

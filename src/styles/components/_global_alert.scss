@@ -1,0 +1,18 @@
+.alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(138, 174, 230, 0.295);
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &--danger {
+    color: red;
+    font: {
+      size: 3rem;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.gauth {
+  // wrapper
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 25px;
+
+  // menu box
+  &__menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  // menu list
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 1rem;
+  }
+  &__logout {
+    cursor: pointer;
+  }
+}

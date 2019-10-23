@@ -3,4 +3,9 @@
 @import './base/reset';
 
 // Global
+@import './components/global_auth';
 @import './components/global_header';
+@import './components/global_alert';
+
+// Components
+@import './components/study';
