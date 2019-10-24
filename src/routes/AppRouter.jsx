@@ -10,6 +10,9 @@ export default () => (
     <Route path="/register" exact component={Register}></Route>
     <Route path="/study" exact component={Studies}></Route>
     <Route path="/study/:studyId" exact component={Study}></Route>
+    <Route path="/about" exact component={() => <div>about</div>}></Route>
+    <Route path="/course" exact component={() => <div>course</div>}></Route>
+    <Route path="/contact" exact component={() => <div>contact</div>}></Route>
     <Redirect to="/" from="*" />
   </Switch>
 );
