@@ -1,34 +1,36 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import AppRouter from '../routes/AppRouter';
-import GlobalHeader from './layouts/GlobalHeader';
-import GlobalAlert from './layouts/GlobalAlert';
-import setAuthToken from '../util/setAuthToken';
+import PropTypes from 'prop-types';
+// react-redux
+import { connect } from 'react-redux';
+// import
 import { loadUser } from '../actions/auth';
-
-// redux
-import { Provider } from 'react-redux';
-import store from '../store';
+// Router
+import AppRouter from '../routes/AppRouter';
+// Global
+import GlobalAlert from './layouts/GlobalAlert';
 import GlobalAuth from './layouts/GlobalAuth';
+import GlobalHeader from './layouts/GlobalHeader';
 
-if (localStorage.token) {
-  setAuthToken(localStorage.token);
-}
-
-const App = () => {
+const App = ({ loadUser }) => {
   useEffect(() => {
-    store.dispatch(loadUser());
+    loadUser();
   }, []);
   return (
-    <Provider store={store}>
-      <Router>
-        <GlobalAlert />
-        <GlobalAuth />
-        <GlobalHeader />
-        <AppRouter />
-      </Router>
-    </Provider>
+    <Router>
+      <GlobalAlert />
+      <GlobalAuth />
+      <GlobalHeader />
+      <AppRouter />
+    </Router>
   );
 };
 
-export default App;
+App.propTypes = {
+  loadUser: PropTypes.func.isRequired,
+};
+
+export default connect(
+  null,
+  { loadUser },
+)(App);
